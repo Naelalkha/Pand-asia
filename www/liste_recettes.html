@@ -1,0 +1,33 @@
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function()
+ {
+ var url="http://localhost/Pand'asia/www/json.php";
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+ var id=field.id;
+ var nom=field.nom;
+ var description=field.description;
+ var type=field.type;
+ var origine=field.origine;
+ var cout=field.cout;
+ var difficulte=field.difficulte;
+ $("#listview").append("<a class='item' href='form.html?id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><span class='item-note'>"+type+"</span><h2>"+ nom + " </h2><p>"+ description +"</p></a>");
+ });
+ });
+ });
+ </script>
+</head>
+<body>
+ <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+ <a href="index.html" class="button button-clear">Home</a>
+ <h1 class="title">Read Database (JSON)</h1>
+ </div><br/><br/>
+ <ul class="list" id="listview">
+ </ul>
+</body>
+</html>

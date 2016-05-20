@@ -1,0 +1,79 @@
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="style/style.css">
+ <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function()
+ {
+ $("#insert").click(function(){
+ var nom=$("#nom").val();
+ var description=$("#description").val();
+ var type=$("#type").val();
+ var origine=$("#origine").val();
+ var cout=$("#cout").val();
+ var difficulte=$("#difficulte").val();
+ var dataString="nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&insert=";
+ if($.trim(nom).length>0 & $.trim(description).length>0 & $.trim(type).length>0 & $.trim(origine).length>0 & $.trim(cout).length>0 & $.trim(difficulte).length>0)
+ {
+ $.ajax({
+ type: "POST",
+ url:"http://localhost/Pand'asia/www/insert.php",
+ data: dataString,
+ crossDomain: true,
+ cache: false,
+ beforeSend: function(){ $("#insert").val('Connecting...');},
+ success: function(data){
+ if(data=="ok")
+ {
+ alert("inserted");
+ $("#insert").val('submit');
+ }
+ else if(data=="error")
+ {
+ alert("error");
+ }
+ }
+ });
+ }return false;
+ });
+ });
+ </script>
+</head>
+<body>
+ <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+ <h1 class="title">Insert Database</h1>
+ <a class="button button-clear" href="readjson.html">Read JSON</a>
+ </div><br/><br/>
+ <div class="list">
+ <input type="hidden" id="id" value=""/>
+ <div class="item">
+ <label>Nom</label>
+ <input type="text" id="nom" value=""/>
+ </div>
+ <div class="item">
+ <label>Description</label>
+ <input type="text" id="description" value=""/>
+ </div>
+ <div class="item">
+ <label>Type</label>
+ <input type="text" id="type" value=""/>
+ </div>
+ <div class="item">
+ <label>Origine</label>
+ <input type="text" id="origine" value=""/>
+ </div>
+ <div class="item">
+ <label>Cout</label>
+ <input type="text" id="cout" value=""/>
+ </div>
+ <div class="item">
+ <label>Difficulte</label>
+ <input type="text" id="difficulte" value=""/>
+ </div>
+ <div class="item">
+ <input type="button" id="insert" class="button button-block" value="Ajouter"/>
+ </div>
+ </div>
+</body>
+</html>
