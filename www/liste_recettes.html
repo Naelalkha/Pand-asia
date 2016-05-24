@@ -1,11 +1,16 @@
 <html>
 <head>
  <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
- <script type="text/javascript" src="js/jquery.min.js"></script>
+ <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/header.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    
  <script type="text/javascript">
  $(document).ready(function()
  {
- var url="http://localhost/Pand'asia/www/json.php";
+ var url="http://nael-alkha.fr/json.php";
  $.getJSON(url,function(result){
  console.log(result);
  $.each(result, function(i, field){
@@ -23,11 +28,33 @@
  </script>
 </head>
 <body>
- <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
- <a href="index.html" class="button button-clear">Home</a>
- <h1 class="title">Read Database (JSON)</h1>
- </div><br/><br/>
+    <nav class="navmenu">
+        <ul>
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
+
+ <h1 class="title text-center">Liste des recettes</h1>
  <ul class="list" id="listview">
  </ul>
+    <footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="liste_recettes.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="insert.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
 </body>
 </html>

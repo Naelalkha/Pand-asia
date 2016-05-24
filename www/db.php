@@ -1,5 +1,5 @@
 <?php
- header("Access-Control-Allow-Origin: *");
- mysql_connect("localhost","root","root");
- mysql_select_db("phonegap_panda");
+  header("Access-Control-Allow-Origin: *");
+ mysql_connect("naelalkhespanda.mysql.db","naelalkhespanda","Pandasiaweb3");
+ mysql_select_db("naelalkhespanda");
 ?>

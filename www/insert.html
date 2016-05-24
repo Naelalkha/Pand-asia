@@ -1,8 +1,11 @@
 <html>
 <head>
- <link rel="stylesheet" type="text/css" href="style/style.css">
  <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
- <script type="text/javascript" src="js/jquery.min.js"></script>
+ <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/header.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
  <script type="text/javascript">
  $(document).ready(function()
  {
@@ -18,7 +21,7 @@
  {
  $.ajax({
  type: "POST",
- url:"http://localhost/Pand'asia/www/insert.php",
+ url:"http://nael-alkha.fr/insert.php",
  data: dataString,
  crossDomain: true,
  cache: false,
@@ -41,10 +44,17 @@
  </script>
 </head>
 <body>
- <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
- <h1 class="title">Insert Database</h1>
- <a class="button button-clear" href="readjson.html">Read JSON</a>
- </div><br/><br/>
+    <nav class="navmenu">
+      <ul class="back">
+          <a href="index.html">
+          <img src="img/fleche_back.png" alt="">
+          </a>
+      </ul>
+        <ul>
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
+ <h1 class="title text-center">Ajouter recette</h1>
  <div class="list">
  <input type="hidden" id="id" value=""/>
  <div class="item">
@@ -75,5 +85,24 @@
  <input type="button" id="insert" class="button button-block" value="Ajouter"/>
  </div>
  </div>
+ <footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="liste_recettes.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="insert.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
 </body>
 </html>

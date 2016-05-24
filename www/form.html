@@ -1,8 +1,12 @@
 <html>
 <head>
  <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
- <script type="text/javascript" src="js/jquery.min.js"></script>
- <script type="text/javascript" src="js/geturi.js"></script>
+ <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/header.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/geturi.js"></script>
   <script type="text/javascript">
      $(document).ready(function(){
  var id = decodeURI(getUrlVars()["id"]);
@@ -30,7 +34,7 @@
  var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
  $.ajax({
  type: "POST",
- url:"http://localhost/Pand'asia/www/update.php",
+ url:"http://nael-alkha.fr/update.php",
  data: dataString,
  crossDomain: true,
  cache: false,
@@ -56,7 +60,7 @@
  $.ajax({
  type: "GET",
  //url: "http://phonegappro.esy.es/test/delete.php",
- url:"http://localhost/Pand'asia/www/delete.php",
+ url:"http://nael-alkha.fr/delete.php",
  data: dataString,
  crossDomain: true,
  cache: false,
@@ -79,6 +83,16 @@
  </script>
 </head>
 <body>
+ <nav class="navmenu">
+      <ul class="back">
+          <a href="index.php">
+          <img src="img/fleche_back.png" alt="">
+          </a>
+      </ul>
+        <ul>
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
  <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
  <a href="index.html" class="button button-clear">Home</a>
  <h1 class="title">Update Database</h1>
@@ -98,11 +112,41 @@
  <label>Type</label>
  <input type="text" id="type" value=""/>
  </div>
+  <div class="item">
+ <label>Origine</label>
+ <input type="text" id="origine" value=""/>
+ </div>
+ <div class="item">
+ <label>Coût</label>
+ <input type="text" id="cout" value=""/>
+ </div>
+ <div class="item">
+ <label>Difficulté</label>
+ <input type="text" id="difficulte" value=""/>
+ </div>
  <div class="item">
  <input type="button" id="update" class="button button-block" value="Update"/>
  <input type="button" id="delete" class="button button-block" value="Delete"/>
  </div>
  </div>
- 
+     <footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="liste_recettes.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="insert.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
 </body>
 </html>
