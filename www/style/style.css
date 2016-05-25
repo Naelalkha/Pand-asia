@@ -63,7 +63,7 @@ footer {
   border-radius: 10px;
   background-color: #f9ddb6;
 }
-.btn:hover {
+.btn :hover {
   background-color: none;
 }
 .btn-primary {
@@ -83,7 +83,7 @@ input[type="text"] {
   border: none;
   border-bottom: 1px solid black;
 }
-input[type="text"]:focus {
+input[type="text"] :focus {
   outline: none;
 }
 #recherche ul {
@@ -93,11 +93,11 @@ input[type="text"]:focus {
 .inline {
   display: inline-flex;
 }
-#horiz-scroll {
-  overflow-x: scroll;
-}
 .inline img {
   padding: 5px;
+}
+#horiz-scroll {
+  overflow-x: scroll;
 }
 .img-100 {
   width: 100%;
@@ -113,6 +113,16 @@ input[type="text"]:focus {
 .login {
   background-color: #f9ddb6;
   text-align: center;
+}
+.login .btnlog {
+  width: 150px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  padding: 10px 20px 10px 20px;
+  margin-top: 10px;
 }
 .login hr {
   margin-top: 20px;
@@ -130,14 +140,4 @@ input[type="text"]:focus {
   border: 1px solid #000000;
   padding: 10px;
   width: 80%;
-}
-.login .btnlog {
-  width: 150px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #000000;
-  background-color: transparent;
-  border: 1px solid #000000;
-  padding: 10px 20px 10px 20px;
-  margin-top: 10px;
 }

@@ -61,10 +61,11 @@ footer {
   border: none;
   border-radius: 10px;
   background-color: #f9ddb6;
-}
-.btn:hover {
+    :hover {
   background-color: none;
 }
+}
+
 .btn-primary {
   background-color: #fff;
   background-image: none;
@@ -81,23 +82,25 @@ input[type="text"] {
   border-radius: none;
   border: none;
   border-bottom: 1px solid black;
-}
-input[type="text"]:focus {
+    :focus {
   outline: none;
 }
+}
+
 #recherche ul {
   margin-left: -40px;
   font-family: 'Aileron';
 }
 .inline {
   display: inline-flex;
+    img {
+  padding: 5px;
+}
 }
 #horiz-scroll {
   overflow-x: scroll;
 }
-.inline img {
-  padding: 5px;
-}
+
 .img-100 {
   width: 100%;
   height: auto;
@@ -112,25 +115,7 @@ input[type="text"]:focus {
 .login {
   background-color: #f9ddb6;
   text-align: center;
-}
-.login hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #000000;
-  width: 50%;
-}
-.login form input {
-  border: 1px solid #000000;
-  padding: 10px;
-  width: 80%;
-}
-.login form textarea {
-  border: 1px solid #000000;
-  padding: 10px;
-  width: 80%;
-}
-.login .btnlog {
+    .btnlog {
   width: 150px;
   font-weight: 500;
   text-transform: uppercase;
@@ -139,4 +124,26 @@ input[type="text"]:focus {
   border: 1px solid #000000;
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
+}
+
+    hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #000000;
+  width: 50%;
+}
+    form{
+        input {
+  border: 1px solid #000000;
+  padding: 10px;
+  width: 80%;
+}
+        textarea {
+  border: 1px solid #000000;
+  padding: 10px;
+  width: 80%;
+}
+        
+    } 
 }
