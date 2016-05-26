@@ -33,15 +33,15 @@ beforeSend: function(){ $("#signup").val('Connecting...');},
 success: function(data){
 if(data=="success")
 {
-alert("Thank you for Registering with us! you can login now");
+alert("Merci de votre inscription! Vous pouvez maintenant vous connecter.");
 }
 else if(data="exist")
 {
-alert("Hey! You alreay has account! you can login with us");
+alert("Vous possédez déjà un compte, vous pouvez vous connecter.");
 }
 else if(data="failed")
 {
-alert("Something Went wrong");
+alert("Erreur lors de l'inscription.");
 }
 }
 });
@@ -64,7 +64,7 @@ alert("Something Went wrong");
     </nav>
 <div class="padding" style="margin-top:75px;">
 <label class="item-input">
-<span class="input-label">Full Name</span>
+<span class="input-label">Fullname</span>
 <input type="text" placeholder="Sundaravel" id="fullname">
 </label>
 <label class="item-input">
@@ -76,9 +76,28 @@ alert("Something Went wrong");
 <input type="password" placeholder="password" id="password">
 </label>
 <label class="item-input">
-<button class="button button-block button-positive" id="signup">Create an Account</button>
+<button class="button button-block button-positive" id="signup">Créer un compte</button>
 </label>
 </div>
 
+<footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="index_front.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="login.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
 </body>
 </html>
