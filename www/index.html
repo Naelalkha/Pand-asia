@@ -1,111 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Pand'asia</title>
-    
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+ <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
+ <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="style/header.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    
+ <script type="text/javascript">
+ $(document).ready(function()
+ {
+ var url="http://nael-alkha.fr/json.php";
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+ var id=field.id;
+ var nom=field.nom;
+ var description=field.description;
+ var type=field.type;
+ var origine=field.origine;
+ var cout=field.cout;
+ var difficulte=field.difficulte;
+ $("#listview").append("<a class='item' href='form.html?id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><span class='item-note'>"+type+"</span><h2>"+ nom + " </h2><p>"+ description +"</p></a>");
+ });
+ });
+ });
+ </script>
 </head>
-
 <body>
-    <header>
-      
-      <nav class="navmenu">
+    <nav class="navmenu">
         <ul>
-            <img src="img/Titre-Pand'Asia250.png" alt="">
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
         </ul>
     </nav>
-       
-    </header>
 
-    <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>RECETTE A LA UNE</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div id="horiz-scroll" class="col-md-12 inline">
-            <a href="recette.html">
-            <img src="img/plat1.jpg" alt="..." class="img-rounded">
-            </a>
-            <a href="recette.html">
-            <img src="img/plat2.jpg" alt="..." class="img-rounded">
-            </a>
-            <a href="recette.html">
-            <img src="img/plat3.jpg" alt="..." class="img-rounded">
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>RECETTE DU JOUR</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 du_jour">
-            <a href="recette.html">
-            <img class="img-100" src="img/plat_jour1.jpg" alt="responsive                 image">
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>RECETTE AU HASARD</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 inline">
-           <div class="col-md-1">
-            <img src="img/plat1.jpg" alt="..." class="">
-            </div>
-            <div class="col-md-1 margin-haut">
-             <h3>Sushi préparé</h3>   
-            </div>
-            <div class="col-md-1">
-             <p>Plat</p>   
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 inline">
-           <div class="col-md-1">
-            <img src="img/plat1.jpg" alt="..." class="">
-            </div>
-            <div class="col-md-1 margin-haut">
-             <h3>Sushi préparé</h3>   
-            </div>
-            <div class="col-md-1">
-             <p>Plat</p>   
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 inline">
-           <div class="col-md-1">
-            <img src="img/plat1.jpg" alt="..." class="">
-            </div>
-            <div class="col-md-1 margin-haut">
-             <h3>Sushi préparé</h3>   
-            </div>
-            <div class="col-md-1">
-             <p>Plat</p>   
-            </div>
-        </div>
-    </div>
-</div>
+ <h1 class="title text-center">Liste des recettes</h1>
+ <ul class="list" id="listview">
+ </ul>
+   <label class="item-input">
+<span class="input-label"></span>
+<a href="insert.html" class="button button-clear button-royal">Ajouter recette</a>
+</label>
     <footer class="footer">
      <div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
@@ -125,9 +60,5 @@
   </div>
 </div>
 </footer>
-    
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

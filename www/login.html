@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pand'asia</title>
+    
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/header.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+         $(document).ready(function()
+ {
+    $("#logout").click(function(){
+localStorage.login="false";
+window.location.href = "login.html";
+});   
+});</script>
+<script type="text/javascript">
+var url = window.location.pathname;var filename = url.substring(url.lastIndexOf('/')+1);
+if(localStorage.login=="true" && filename == 'login.html'){window.location.href = "index.html";}
+else if(localStorage.login=="false" && filename != 'login.html'){window.location.href = "login.html";}
+    
+</script>
+<script>
+      $(document).ready(function()
+ {
+    $("#login").click(function(){
+var email=$("#email").val();
+var password=$("#password").val();
+var dataString="email="+email+"&password="+password+"&login=";
+if($.trim(email).length>0 & $.trim(password).length>0)
+{
+$.ajax({
+type: "POST",
+url: "http://nael-alkha.fr/login.php",
+data: dataString,
+crossDomain: true,
+cache: false,
+beforeSend: function(){ $("#login").html('Connecting...');},
+success: function(data){
+if(data=="success")
+{
+localStorage.login="true";
+localStorage.email=email;
+window.location.href = "index.html";
+}
+else if(data="failed")
+{
+alert("Login error");
+$("#login").html('Login');
+}
+}
+});
+}return false;
+});
+$("#logout").click(function(){
+localStorage.login="false";
+window.location.href = "login1.html";
+});   
+});</script>
+</head>
+
+<body class="login">
+    <header>
+      
+      <nav class="navmenu">
+        <ul>
+            <img src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
+       
+    </header>
+    
+    <div class="login container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <img class="hvr-grow" src="img/LogoPandaSmall.png" alt="">
+                 <hr>
+                <p>Partagez vos recettes,ajoutez des recettes</br> en favoris ou partagez votre avis en vous inscrivant.</p>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" value="S'inscrire" class="btnlog">
+            </div>
+            <div class="col-md-12">
+                <p>Connectez-vous si vous possédez</br> déjà votre compte.</p>
+            </div>
+            <div class="col-md-12">
+               <form>
+                  <div class="form-group">
+                    <input type="email" class="form" id="email" placeholder="Email">
+                    <input type="password" class="form" id="password" placeholder="Mot de passe">
+                  </div>
+                  <input type="submit" value="Se connecter" class="btnlog" id="login">
+                </form>
+            </div>
+        </div>   
+    </div>
+    <label class="item-input">
+<button class="button button-block button-positive" id="logout">Logout</button>
+</label>
+
+    
+  <footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="liste_recettes.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="login.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
+    
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

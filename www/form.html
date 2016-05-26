@@ -23,38 +23,8 @@
  $("#origine").val(origine);
  $("#cout").val(cout);
  $("#difficulte").val(difficulte);
- $("#update").click(function(){
- var id=$("#id").val();
- var nom=$("#nom").val();
- var description=$("#description").val();
- var type=$("#type").val();
- var origine=$("#origine").val();
- var cout=$("#cout").val();
- var difficulte=$("#difficulte").val();
- var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
- $.ajax({
- type: "POST",
- url:"http://nael-alkha.fr/update.php",
- data: dataString,
- crossDomain: true,
- cache: false,
- beforeSend: function(){ $("#update").val('Connecting...');},
- success: function(data){
- if(data=="ok")
- {
- alert("Updated");
- $("#update").val("Update");
- }
- else if(data=="error")
- {
- alert("error");
- }
- }
- });
- 
- });
-     
- $("#delete").click(function(){
+         
+          $("#delete").click(function(){
  var id=$("#id").val();
  var dataString="id="+id+"&delete=";
  $.ajax({
@@ -70,6 +40,7 @@
  {
  alert("Deleted");
  $("#delete").val("Delete");
+     window.location.href = "index.html";
  }
  else if(data=="error")
  {
@@ -79,6 +50,41 @@
  });
  
  });
+         
+ $("#update").click(function(){
+ var id=$("#id").val();
+ var nom=$("#nom").val();
+ var description=$("#description").val();
+ var type=$("#type").val();
+ var origine=$("#origine").val();
+ var cout=$("#cout").val();
+ var difficulte=$("#difficulte").val();
+ var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
+ $.ajax({
+     
+ type: "POST",
+ url:"http://nael-alkha.fr/update.php",
+ data: dataString,
+ crossDomain: true,
+ cache: false,
+ beforeSend: function(){ $("#update").val('Connecting...');},
+ success: function(data){
+ if(data=="ok")
+ {
+ alert("Updated");
+ $("#update").val("Update");
+     window.location.href = "index.html";
+ }
+ else if(data=="error")
+ {
+ alert("error");
+ }
+ }
+ });
+ 
+ });
+     
+
  });
  </script>
 </head>

@@ -1,0 +1,83 @@
+
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+<link rel="stylesheet" type="text/css" href="style/ionic.min.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+ 
+<title>Login</title>
+<script type="text/javascript">
+var url = window.location.pathname;var filename = url.substring(url.lastIndexOf('/')+1);
+if(localStorage.login=="true" && filename == 'login1.html'){window.location.href = "index.html";}
+else if(localStorage.login=="false" && filename != 'login1.html'){window.location.href = "login1.html";}
+    
+</script>
+<script>
+      $(document).ready(function()
+ {
+    $("#login").click(function(){
+var email=$("#email").val();
+var password=$("#password").val();
+var dataString="email="+email+"&password="+password+"&login=";
+if($.trim(email).length>0 & $.trim(password).length>0)
+{
+$.ajax({
+type: "POST",
+url: "http://nael-alkha.fr/login.php",
+data: dataString,
+crossDomain: true,
+cache: false,
+beforeSend: function(){ $("#login").html('Connecting...');},
+success: function(data){
+if(data=="success")
+{
+localStorage.login="true";
+localStorage.email=email;
+window.location.href = "index.html";
+}
+else if(data="failed")
+{
+alert("Login error");
+$("#login").html('Login');
+}
+}
+});
+}return false;
+});
+$("#logout").click(function(){
+localStorage.login="false";
+window.location.href = "login1.html";
+});   
+});</script>
+</head>
+<body>
+<div class="bar bar-header">
+<h1 class="title">Login</h1>
+<a href="signup.html" class="button button-clear button-royal">Signup</a>
+</div>
+<div class="padding" style="margin-top:55px;">
+<label class="item-input">
+<span class="input-label">Email</span>
+<input type="email" placeholder="email@domain.com" id="email">
+</label>
+<label class="item-input">
+<span class="input-label">Password</span>
+<input type="password" placeholder="password" id="password">
+</label>
+<label class="item-input">
+<span class="input-label"></span>
+<a href="forget-password.html" class="button button-clear button-royal">Forget Password ?</a>
+</label>
+<label class="item-input">
+<button class="button button-block button-positive" id="login">Login</button>
+</label>
+
+</div>
+
+
+</body>
+</html>

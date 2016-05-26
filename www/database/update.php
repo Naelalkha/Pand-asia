@@ -14,6 +14,7 @@
  echo "ok";
  else
  echo "error";
+      echo mysql_error();
  }
  ?>
  
