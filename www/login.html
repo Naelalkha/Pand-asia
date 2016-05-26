@@ -12,23 +12,18 @@
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="style/header.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script>
-         $(document).ready(function()
- {
-    $("#logout").click(function(){
-localStorage.login="false";
-window.location.href = "login.html";
-});   
-});</script>
-<script type="text/javascript">
-var url = window.location.pathname;var filename = url.substring(url.lastIndexOf('/')+1);
-if(localStorage.login=="true" && filename == 'login.html'){window.location.href = "index.html";}
-else if(localStorage.login=="false" && filename != 'login.html'){window.location.href = "login.html";}
     
-</script>
+
 <script>
       $(document).ready(function()
  {
+
+ var email=localStorage.email;
+
+if (localStorage.login=="true"){
+     $("#name").append("Connecté en tant que <span class='name'>"+ email +"</span>");
+}
+           
     $("#login").click(function(){
 var email=$("#email").val();
 var password=$("#password").val();
@@ -60,8 +55,10 @@ $("#login").html('Login');
 });
 $("#logout").click(function(){
 localStorage.login="false";
-window.location.href = "login1.html";
-});   
+window.location.href = "index.html";
+});
+          
+          
 });</script>
 </head>
 
@@ -83,8 +80,10 @@ window.location.href = "login1.html";
                  <hr>
                 <p>Partagez vos recettes,ajoutez des recettes</br> en favoris ou partagez votre avis en vous inscrivant.</p>
             </div>
+            <ul class="list" id="name">
+ </ul>
             <div class="col-md-12">
-                <input type="submit" value="S'inscrire" class="btnlog">
+                <a href="signup.html" class="btnlog">S'inscrire</a>
             </div>
             <div class="col-md-12">
                 <p>Connectez-vous si vous possédez</br> déjà votre compte.</p>

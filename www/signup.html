@@ -7,6 +7,11 @@
 <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <link rel="stylesheet" type="text/css" href="style/ionic.min.css" />
+       <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/hover.css">
+    <link rel="stylesheet" href="style/style_note.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
  <script type="text/javascript">
   $(document).ready(function()
@@ -47,10 +52,16 @@ alert("Something Went wrong");
 <title>Create an Account</title>
 </head>
 <body>
-<div class="bar bar-header">
-<h1 class="title">Create an Account</h1>
-<a href="login.html" class="button button-clear button-royal">Login</a>
-</div>
+    <nav class="navmenu">
+      <ul class="back">
+          <a href="login.html">
+          <img src="img/fleche_back.png" alt="">
+          </a>
+      </ul>
+        <ul>
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
 <div class="padding" style="margin-top:75px;">
 <label class="item-input">
 <span class="input-label">Full Name</span>
