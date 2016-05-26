@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="style/header.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+    if(localStorage.login=="true" && filename == 'login.html'){window.location.href = "profil.html";}
+    else if(localStorage.login=="false" && filename != 'login.html'){window.location.href = "login.html";}
     
+    </script>
 
 <script>
       $(document).ready(function()
@@ -25,6 +31,7 @@ if (localStorage.login=="true"){
 }
            
     $("#login").click(function(){
+
 var email=$("#email").val();
 var password=$("#password").val();
 var dataString="email="+email+"&password="+password+"&login=";
@@ -42,6 +49,8 @@ if(data=="success")
 {
 localStorage.login="true";
 localStorage.email=email;
+
+    
 window.location.href = "index.html";
 }
 else if(data="failed")
