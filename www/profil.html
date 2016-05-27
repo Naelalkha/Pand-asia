@@ -14,24 +14,33 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
     
 
-<script>
-      $(document).ready(function()
+
+     <script type="text/javascript">
+ $(document).ready(function()
  {
+ var url="http://nael-alkha.fr/json_user.php";
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+ var id=field.id;
+      var nom=field.fullname;
 
- var email=localStorage.email;
-
-if (localStorage.login=="true"){
-     $("#name").append("Connecté en tant que <span class='name'>"+ email +"</span>");
+     if (localStorage.login=="true"){
+     $("#name").append("Connecté en tant que <span class='name'>"+ nom +"</span>");
 }
-           
-
+ });
+ });
 $("#logout").click(function(){
 localStorage.login="false";
 window.location.href = "index.html";
 });
-          
-          
-});</script>
+var email="jallet";
+
+     
+     
+ });
+ </script>
+
 </head>
 
 <body class="login">
