@@ -1,0 +1,72 @@
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
+ <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/header.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/geturi.js"></script>
+  <script type="text/javascript">
+     $(document).ready(function(){
+ var id = decodeURI(getUrlVars()["id"]);
+ var nom = decodeURI(getUrlVars()["nom"]);
+ var description = decodeURI(getUrlVars()["description"]);
+ var type = decodeURI(getUrlVars()["type"]);
+ var origine = decodeURI(getUrlVars()["origine"]);
+ var cout = decodeURI(getUrlVars()["cout"]);
+ var difficulte = decodeURI(getUrlVars()["difficulte"]);
+ $("#id").val(id);
+ $("#nom").val(nom);
+ $("#description").val(description);
+ $("#type").val(type);
+ $("#origine").val(origine);
+ $("#cout").val(cout);
+ $("#difficulte").val(difficulte);
+         
+          $("#listview").append("<div class='item' href='id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><span class='item-note'>"+type+"</span><h2>"+ nom + " </h2><p>"+ description +"</p></div>");
+
+     
+
+ });
+ </script>
+</head>
+<body>
+ <nav class="navmenu">
+      <ul class="back">
+          <a href="index.php">
+          <img src="img/fleche_back.png" alt="">
+          </a>
+      </ul>
+        <ul>
+            <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
+        </ul>
+    </nav>
+ <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+ <a href="index.html" class="button button-clear">Home</a>
+ <h1 class="title">Update Database</h1>
+ <a class="button button-clear" href="readjson.html">Read JSON</a>
+ </div><br/><br/>
+<ul class="list" id="listview">
+ </ul>
+   <footer class="footer">
+     <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="index.html" type="button" class="btn btn-default">
+    <img class="hvr-grow" src="img/home.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="index_front.html" class="btn btn-default">
+    <img class="hvr-grow" src="img/recherche.png" alt="">
+    </a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="login.html" type="button" class="btn btn-default" >
+    <img class="hvr-grow" src="img/inscrip.png" alt="">
+    </a>
+  </div>
+</div>
+</footer>
+</body>
+</html>

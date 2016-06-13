@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Pand'asia</title>
-    
+
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
     <link rel="stylesheet" href="style/style.css" type="text/css">
@@ -22,19 +22,42 @@
  $.getJSON(url,function(result){
  console.log(result);
  $.each(result, function(i, field){
- var id=field.id;
-      var nom=field.fullname;
+ var reg_id=field.reg_id;
+      var email=field.email;
+     var fullname=field.fullname;
+
+
+
 
      if (localStorage.login=="true"){
-     $("#name").append("Connecté en tant que <span class='name'>"+ nom +"</span>");
+     $("#name").append("Connecté en tant que <span class='name'>"+ fullname +"</span>");
+         
 }
  });
  });
+     
+var url="http://nael-alkha.fr/recette_user.php";
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+ var id=field.id;
+ var nom=field.nom;
+ var description=field.description;
+ var type=field.type;
+ var origine=field.origine;
+ var cout=field.cout;
+ var difficulte=field.difficulte;
+ $("#listview").append("<a class='item' href='form.html?id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><span class='item-note'>"+type+"</span><h2>"+ nom + " </h2><p>"+ description +"</p></a>");
+ });
+ });
+     
+     
+
 $("#logout").click(function(){
 localStorage.login="false";
 window.location.href = "index.html";
 });
-var email="jallet";
+
 
      
      
@@ -62,13 +85,20 @@ var email="jallet";
             </div>
             <ul class="list" id="name">
  </ul>
-        
+      <label class="item-input">
+<span class="input-label"></span>
+<a href="insert.html" class="button button-clear button-royal">AJouter recette</a>
+</label>  
          
         </div>   
     </div>
     <label class="item-input">
 <button class="button button-block button-positive" id="logout">Logout</button>
 </label>
+    
+    <h1 class="title text-center">Liste des recettes</h1>
+ <ul class="list" id="listview">
+ </ul>
 
     
  <footer class="footer">
