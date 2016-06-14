@@ -46,31 +46,35 @@ footer {
 #recette{
     
      h2{
+         text-align: center;
     font-family: 'helvetica';
-    font-size: 40px;
+    font-size: 25px;
     }
     p{
         font-family: 'helvetica';
-        font-size: 25px;
+        font-size: 19px;
         color: #000;
     }
 }
 .item-note{
+    float: right;
     padding-top: 10px;
     color: black;
     font-size: 15px;
 }
 .description{
-    padding-top: 20px;
+    font-size: 25px;
     padding-left: 7px;
 }
 .origine{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 7px;
     color: black;
     font-size: 15px;
 }
 .difficulte{
-    padding-top: 10px;
-    padding-left: 7px;
+    margin-left: 100px;
 }
 .panda {
   padding-top: 2px;
@@ -176,4 +180,78 @@ input[type="text"] {
 }
         
     } 
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+
+}
+
+/* Portrait layout (default) */
+.app {
+  /*  background:url(../img/logo.png) no-repeat center top; /* 170px x 200px * /
+    position:absolute;             /* position in the center of the screen * /
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height * /
+    width:225px;                   /* text area width * /
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) * /
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height * /
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        margin-top: -40px;
+        background-position:left center;
+        /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+  .app {
+        margin-top: -40px;
+}
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+#pimage{
+    width: 100%;
+    height: auto;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
 }
