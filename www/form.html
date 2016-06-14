@@ -16,6 +16,7 @@
  var origine = decodeURI(getUrlVars()["origine"]);
  var cout = decodeURI(getUrlVars()["cout"]);
  var difficulte = decodeURI(getUrlVars()["difficulte"]);
+          var recette = decodeURI(getUrlVars()["recette"]);
  $("#id").val(id);
  $("#nom").val(nom);
  $("#description").val(description);
@@ -23,6 +24,7 @@
  $("#origine").val(origine);
  $("#cout").val(cout);
  $("#difficulte").val(difficulte);
+          $("#recette").val(recette);
          
           $("#delete").click(function(){
  var id=$("#id").val();
@@ -59,7 +61,8 @@
  var origine=$("#origine").val();
  var cout=$("#cout").val();
  var difficulte=$("#difficulte").val();
- var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
+      var recette=$("#recette").val();
+ var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&recette="+recette+"&update=";
  $.ajax({
      
  type: "POST",
@@ -112,10 +115,7 @@
  <label>Nom</label>
  <input type="text" id="nom" value=""/>
  </div>
- <div class="item">
- <label>Description</label>
- <input type="text" id="description" value=""/>
- </div>
+ 
  <div class="item">
  <label>Type</label>
  <input type="text" id="type" value=""/>
@@ -131,6 +131,14 @@
  <div class="item">
  <label>Difficulté</label>
  <input type="text" id="difficulte" value=""/>
+ </div>
+ <div class="item">
+ <label>Description</label>
+ <textarea type="text" id="description" value=""/></textarea>
+ </div>
+ <div class="item">
+ <label>Recette</label>
+     <textarea type="text" id="recette" value=""/></textarea>
  </div>
  <div class="item">
  <input type="button" id="update" class="button button-block" value="Update"/>

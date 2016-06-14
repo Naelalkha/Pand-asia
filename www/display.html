@@ -16,6 +16,7 @@
  var origine = decodeURI(getUrlVars()["origine"]);
  var cout = decodeURI(getUrlVars()["cout"]);
  var difficulte = decodeURI(getUrlVars()["difficulte"]);
+          var recette = decodeURI(getUrlVars()["recette"]);
  $("#id").val(id);
  $("#nom").val(nom);
  $("#description").val(description);
@@ -23,8 +24,9 @@
  $("#origine").val(origine);
  $("#cout").val(cout);
  $("#difficulte").val(difficulte);
+          $("#recette").val(recette);
          
-          $("#recette").append("<div class='item' href='id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><h2>"+ nom + "</h2><div class='origine'>"+ type + " du " + origine + "</div><div class='difficulte'>" + " difficulte: " + difficulte +"</div><p class='description'>"+ description +"</p></div>");
+          $("#recette").append("<div class='item' href='id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&recette="+recette+"'><h2>"+ nom + "</h2><div class='origine'>"+ type + " du " + origine + "</div><div class='difficulte'>" + " difficulte: " + difficulte +"</div><p class='description'>"+ description +"</p></div>");
 
      
 

@@ -16,8 +16,9 @@
  var origine=$("#origine").val();
  var cout=$("#cout").val();
  var difficulte=$("#difficulte").val();
- var dataString="nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&insert=";
- if($.trim(nom).length>0 & $.trim(description).length>0 & $.trim(type).length>0 & $.trim(origine).length>0 & $.trim(cout).length>0 & $.trim(difficulte).length>0)
+      var recette=$("#recette").val();
+ var dataString="nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&recette="+recette+"&insert=";
+ if($.trim(nom).length>0 & $.trim(description).length>0 & $.trim(type).length>0 & $.trim(origine).length>0 & $.trim(cout).length>0 & $.trim(difficulte).length>0 & $.trim(recette).length>0)
  {
  $.ajax({
  type: "POST",
@@ -63,10 +64,6 @@
  <input type="text" id="nom" value=""/>
  </div>
  <div class="item">
- <label>Description</label>
- <input type="text" id="description" value=""/>
- </div>
- <div class="item">
  <label>Type</label>
  <input type="text" id="type" value=""/>
  </div>
@@ -81,6 +78,14 @@
  <div class="item">
  <label>Difficulte</label>
  <input type="text" id="difficulte" value=""/>
+ </div>
+ <div class="item">
+ <label>Description</label>
+ <textarea type="text" id="description" value=""/></textarea>
+ </div>
+ <div class="item">
+ <label>Recette</label>
+     <textarea type="text" id="recette" value=""/></textarea>
  </div>
  <div class="item">
  <input type="button" id="insert" class="button button-block" value="Ajouter"/>

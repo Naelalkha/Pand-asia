@@ -47,7 +47,9 @@ var url="http://nael-alkha.fr/recette_user.php";
  var origine=field.origine;
  var cout=field.cout;
  var difficulte=field.difficulte;
- $("#listview").append("<a class='item' href='form.html?id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><span class='item-note'>"+type+"</span><h2>"+ nom + " </h2><p>"+ description +"</p></a>");
+     var recette=field.recette;
+     
+ $("#listview").append("<a class='item' href='form.html?id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&recette="+recette+"'><h2>"+ nom + " </h2></a>");
  });
  });
      
