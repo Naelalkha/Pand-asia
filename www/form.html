@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style/header.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/geturi.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="FileUpload.js"></script>
   <script type="text/javascript">
      $(document).ready(function(){
  var id = decodeURI(getUrlVars()["id"]);
@@ -92,6 +94,12 @@
 
  });
  </script>
+ <script type="text/javascript">
+            app.initialize();
+            window.echo("echome", function(echoValue) {
+        alert(echoValue == "echome"); // should alert true.
+    });
+</script>
 </head>
 <body>
  <nav class="navmenu">
@@ -109,6 +117,20 @@
  <h1 class="title">Update Database</h1>
  <a class="button button-clear" href="readjson.html">Read JSON</a>
  </div><br/><br/>
+ <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready1" > </div>
+            <div id="main">
+                <h3>Uploading Image from Phonegap Mobile App to PHP backend</h3>
+                <div id="server-div">
+                   
+                </div>
+                <div id="image-upload" onClick="uploadImage()">
+                    <img id="pimage" src="img/profile.jpg" />
+                </div>
+                <div id="picture_msg">Tap on Image to change and upload</div>
+            </div>
+        </div>
  <div class="list">
  <input type="hidden" id="id" value=""/>
  <div class="item">
