@@ -1,12 +1,15 @@
 <html>
 <head>
+<meta name="format-detection" content="telephone=no" />
  <link rel="stylesheet" type="text/css" href="style/ionic.min.css">
  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="style/header.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/geturi.js"></script>
+    
   <script type="text/javascript">
      $(document).ready(function(){
  var id = decodeURI(getUrlVars()["id"]);
@@ -16,7 +19,6 @@
  var origine = decodeURI(getUrlVars()["origine"]);
  var cout = decodeURI(getUrlVars()["cout"]);
  var difficulte = decodeURI(getUrlVars()["difficulte"]);
-          var recette = decodeURI(getUrlVars()["recette"]);
  $("#id").val(id);
  $("#nom").val(nom);
  $("#description").val(description);
@@ -24,9 +26,8 @@
  $("#origine").val(origine);
  $("#cout").val(cout);
  $("#difficulte").val(difficulte);
-          $("#recette").val(recette);
          
-          $("#recette").append("<div class='item' href='id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&recette="+recette+"'><h2>"+ nom + "</h2><div class='origine'>"+ type + " du " + origine + "</div><div class='difficulte'>" + " difficulte: " + difficulte +"</div><p class='description'>"+ description +"</p></div>");
+          $("#recette").append("<div class='item' href='id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"'><h2>"+ nom + "</h2><div class='origine'>"+ type + " du " + origine + "<div class='difficulte'>" + " difficulte: " + difficulte +"</div></div><p class='description'>"+ description +"</p></div>");
 
      
 
@@ -44,6 +45,10 @@
             <img class="panda" src="img/Titre-Pand'Asia250.png" alt="">
         </ul>
     </nav>
+
+                
+                    <img id="pimage" src="img/profile.jpg"/>
+                
 <ul class="list" id="recette">
  </ul>
    <footer class="footer">
