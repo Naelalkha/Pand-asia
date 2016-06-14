@@ -24,40 +24,7 @@
  $("#cout").val(cout);
  $("#difficulte").val(difficulte);
          
- $("#update").click(function(){
- var id=$("#id").val();
- var nom=$("#nom").val();
- var description=$("#description").val();
- var type=$("#type").val();
- var origine=$("#origine").val();
- var cout=$("#cout").val();
- var difficulte=$("#difficulte").val();
- var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
- $.ajax({
-     
- type: "POST",
- url:"http://nael-alkha.fr/update.php",
- data: dataString,
- crossDomain: true,
- cache: false,
- beforeSend: function(){ $("#update").val('Connecting...');},
- success: function(data){
- if(data=="ok")
- {
- alert("Updated");
- $("#update").val("Update");
-     window.location.href = "index.html";
- }
- else if(data=="error")
- {
- alert("error");
- }
- }
- });
- 
- });
-     
- $("#delete").click(function(){
+          $("#delete").click(function(){
  var id=$("#id").val();
  var dataString="id="+id+"&delete=";
  $.ajax({
@@ -83,6 +50,43 @@
  });
  
  });
+         
+ $("#update").click(function(){
+ var id=$("#id").val();
+ var nom=$("#nom").val();
+ var description=$("#description").val();
+ var type=$("#type").val();
+ var origine=$("#origine").val();
+ var cout=$("#cout").val();
+ var difficulte=$("#difficulte").val();
+ var dataString="id="+id+"&nom="+nom+"&description="+description+"&type="+type+"&origine="+origine+"&cout="+cout+"&difficulte="+difficulte+"&update=";
+ $.ajax({
+     
+ type: "POST",
+ url:"http://nael-alkha.fr/update.php",
+ data: dataString,
+ crossDomain: true,
+ cache: false,
+ beforeSend: function(){  alert("Updated");
+ $("#update").val("Update");
+     window.location.href = "index.html";},
+ success: function(data){
+ if(data=="ok")
+ {
+ alert("Updated");
+ $("#update").val("Update");
+     window.location.href = "index.html";
+ }
+ else if(data=="error")
+ {
+ alert("error");
+ }
+ }
+ });
+ 
+ });
+     
+
  });
  </script>
 </head>
@@ -133,7 +137,7 @@
  <input type="button" id="delete" class="button button-block" value="Delete"/>
  </div>
  </div>
-     <footer class="footer">
+   <footer class="footer">
      <div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
     <a href="index.html" type="button" class="btn btn-default">
@@ -141,12 +145,12 @@
     </a>
   </div>
   <div class="btn-group" role="group">
-    <a href="liste_recettes.html" class="btn btn-default">
+    <a href="index_front.html" class="btn btn-default">
     <img class="hvr-grow" src="img/recherche.png" alt="">
     </a>
   </div>
   <div class="btn-group" role="group">
-    <a href="insert.html" type="button" class="btn btn-default" >
+    <a href="login.html" type="button" class="btn btn-default" >
     <img class="hvr-grow" src="img/inscrip.png" alt="">
     </a>
   </div>
