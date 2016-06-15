@@ -1,84 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Pand'asia</title>
-
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css" type="text/css">
-    <link rel="stylesheet" href="style/style.css" type="text/css">
-    <link rel="stylesheet" href="style/header.css">
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-    
-
-
-     <script type="text/javascript">
-
-
-
-     
-     
-
- </script>
-
-</head>
-
-<body class="login">
-    <header>
-      
-      <nav class="navmenu">
-        <ul>
-            <img src="img/Titre-Pand'Asia250.png" alt="">
-        </ul>
-    </nav>
-       
-    </header>
-    
-    <div class="login container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <img class="hvr-grow" src="img/LogoPandaSmall.png" alt="">
-                 <hr
-            </div>
-             <div class="list">
-
- <div class="item">
- <label>Nom</label>
- <input type="text" id="nom" value="nom"/>
- </div>
- <div class="item">
- <input type="button" id="insert" class="button button-block" value="Ajouter"/>
- </div>
- </div>
-            <ul class="list" id="name">
- </ul>
-     
-
-    
- <footer class="footer">
-     <div class="btn-group btn-group-justified" role="group" aria-label="...">
-  <div class="btn-group" role="group">
-    <a href="index.html" type="button" class="btn btn-default">
-    <img class="hvr-grow" src="img/home.png" alt="">
-    </a>
-  </div>
-  <div class="btn-group" role="group">
-    <a href="index_front.html" class="btn btn-default">
-    <img class="hvr-grow" src="img/recherche.png" alt="">
-    </a>
-  </div>
-  <div class="btn-group" role="group">
-    <a href="login.html" type="button" class="btn btn-default" >
-    <img class="hvr-grow" src="img/inscrip.png" alt="">
-    </a>
-  </div>
-</div>
-</footer>
-    
-
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<html>  
+      <head>  
+           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+           <title>Webslesson Tutorial</title>  
+           <script src="js/jquery.min.js"></script>  
+           <script src="js/bootstrap.js"></script>  
+           <link href="css/bootstrap.css" rel="stylesheet" />  
+      </head>  
+      <body>  
+           <div class="container">  
+                <br />  
+                <h2 align="center">Ajax Live Data Search using Jquery PHP MySql</h2><br />  
+                <div class="form-group">  
+                     <div class="input-group">  
+                          <span class="input-group-addon">Search</span>  
+                          <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Name" class="form-control" />  
+                     </div>  
+                </div>  
+                <br />  
+                <div id="result"></div>  
+           </div>  
+      </body>  
+ </html>  
+ <script>  
+ $(document).ready(function(){  
+      $('#search_text').keyup(function(){  
+           var txt = $(this).val();  
+           if(txt != '')  
+           {  
+                $.ajax({  
+                     url:"http://nael-alkha.fr/search.php",  
+                     method:"post",  
+                     data:{search:txt},  
+                     dataType:"text",  
+                     success:function(data)  
+                     {  
+                          $('#result').html(data);  
+                     }  
+                });  
+           }  
+           else  
+           {  
+                $('#result').html('');                 
+           }  
+      });  
+ });  
+ </script>  
